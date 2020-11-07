@@ -8,7 +8,8 @@ def call(Map config=[:]) {
         stage('Build') {
             try {
                 echo 'Building...'
-                sh 'dotnet build ./console-app-1/ConsoleApp1'
+                // sh 'dotnet build ./console-app-1/ConsoleApp1'
+                sh "dotnet build " + congig.target
                 echo 'Building new feature'
                 releasenotes(changes:"true")
             } catch (ex) {
